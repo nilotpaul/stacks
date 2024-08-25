@@ -2,7 +2,8 @@
   "name": "hono-trpc-vite",
   "private": true,
   "scripts": {
-    "build": "turbo build",
+    "build": "turbo build && copyfiles -u 3 ./apps/web/dist/* ./apps/web/dist/**/* ./apps/server/build",
+    "start": "turbo start",
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
