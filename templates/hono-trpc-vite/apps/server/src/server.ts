@@ -8,6 +8,7 @@ import { serveStatic } from '@hono/node-server/serve-static';
 import { logger } from 'hono/logger';
 import { trpcHandler } from './trpc/root';
 import { isProd } from './utils';
+import { env } from './config/env';
 
 export const createServer = async () => {
   const app = new Hono();
@@ -24,7 +25,7 @@ export const createServer = async () => {
   });
   app.use(
     cors({
-      origin: ['http://localhost:5173'],
+      origin: [!isProd() ? 'http://localhost:5173' : `https://${env.DOMAIN}`],
       allowMethods: ['GET', 'POST', 'OPTIONS'],
       credentials: true,
     })
