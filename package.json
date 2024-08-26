@@ -1,0 +1,15 @@
+{
+  "name": "@edev/stacks",
+  "version": "1.0.0",
+  "description": "Collection of pre-configured tech stacks",
+  "bin": {
+    "create-stack": "./scripts/cli.js"
+  },
+  "scripts": {},
+  "author": "nilotpaul",
+  "license": "MIT",
+  "dependencies": {
+    "@clack/prompts": "^0.7.0",
+    "degit": "^2.8.4"
+  }
+}
