@@ -26,7 +26,7 @@ export const createServer = async () => {
   app.use(
     cors({
       origin: [!isProd() ? 'http://localhost:5173' : `https://${env.DOMAIN}`],
-      allowMethods: ['GET', 'POST', 'OPTIONS'],
+      allowMethods: ['GET', 'POST'],
       credentials: true,
     })
   );
@@ -43,7 +43,7 @@ export const createServer = async () => {
     app.use('/*', (c, next) =>
       serveStatic({
         root: '.',
-        path: './build',
+        path: './dist/client',
         rewriteRequestPath: (path) => path + c.req.path,
       })(c, next)
     );
@@ -51,7 +51,7 @@ export const createServer = async () => {
       '/*',
       serveStatic({
         root: '.',
-        path: './build/index.html',
+        path: './dist/client/index.html',
       })
     );
   }

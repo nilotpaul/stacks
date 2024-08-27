@@ -1,13 +1,14 @@
 {
   "name": "hono-trpc-vite",
   "scripts": {
-    "build": "turbo build && copyfiles -u 3 ./apps/web/dist/* ./apps/web/dist/**/* ./apps/server/build",
+    "build": "turbo build && copyfiles -u 3 ./apps/web/dist/* ./apps/web/dist/**/* ./apps/server/dist/client",
     "start": "turbo start",
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
+    "copyfiles": "^2.4.1",
     "prettier": "^3.2.5",
     "turbo": "^2.0.14",
     "typescript": "^5.4.5"

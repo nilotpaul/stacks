@@ -57,7 +57,7 @@ const corsMiddleware = cors({
 
 const serveStatic: Middleware = async (req, res) => {
   try {
-    const requestedPath = path.join(root, 'build', req.url || 'index.html');
+    const requestedPath = path.join(root, 'dist', 'client', req.url || 'index.html');
     const file = await fs.readFile(requestedPath, {
       encoding: 'utf-8',
     });
@@ -79,7 +79,7 @@ const serveStatic: Middleware = async (req, res) => {
   } catch {
     // console.info('File not found, serving index.html...');
     try {
-      const file = await fs.readFile(path.join(root, 'build', 'index.html'), {
+      const file = await fs.readFile(path.join(root, 'dist', 'client', 'index.html'), {
         encoding: 'utf-8',
       });
       res.setHeader('Content-Type', 'text/html');
