@@ -1,6 +1,5 @@
 {
   "name": "hono-trpc-vite",
-  "private": true,
   "scripts": {
     "build": "turbo build && copyfiles -u 3 ./apps/web/dist/* ./apps/web/dist/**/* ./apps/server/build",
     "start": "turbo start",

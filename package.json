@@ -1,9 +1,9 @@
 {
-  "name": "@edev/stacks",
-  "version": "1.0.0",
+  "name": "@evolvedev/stacks",
+  "version": "1.0.1",
   "description": "Collection of pre-configured tech stacks",
   "bin": {
-    "create-stack": "./scripts/cli.js"
+    "create-stack": "scripts/cli.js"
   },
   "scripts": {},
   "author": "nilotpaul",
@@ -11,5 +11,15 @@
   "dependencies": {
     "@clack/prompts": "^0.7.0",
     "degit": "^2.8.4"
-  }
+  },
+  "main": "scripts/cli.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nilotpaul/stacks.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nilotpaul/stacks/issues"
+  },
+  "homepage": "https://github.com/nilotpaul/stacks#readme"
 }

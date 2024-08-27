@@ -67,7 +67,7 @@ async function main() {
   }
   spinner.stop();
 
-  clack.log.info(`Run: cd ${template} && npm install`);
+  clack.log.info(destPath !== '.' ? `Run: cd ${template} && npm install` : 'Run: npm install');
   clack.outro('Happy Coding 😊');
 
   process.exit(0);
