@@ -1,0 +1,8 @@
+{
+  "watch": ["src", "index.html"],
+  "ext": "js,ts,jsx,tsx",
+  "ignore": ["dist", "tests", "build"],
+  "exec": "cross-env NODE_ENV=development tsx ./src/server/__kyrix/main.ts",
+  "delay": "0",
+  "quiet": true
+}

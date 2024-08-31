@@ -16,7 +16,12 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    "baseUrl": "."
+    // "paths": {
+    //   "@kyrix/*": ["./src/server/__kyrix/*"]
+    // }
   },
-  "include": ["vite.config.ts", "src/server/**/*"]
+  "include": ["vite.config.server.ts", "src/server/**/*"]
 }

@@ -1,7 +1,9 @@
-import { trpc } from './lib/trpcClient';
+import { getRouteData, trpc } from './lib/kyrix';
 
 const App = () => {
-  const test = trpc.tests.test.useQuery();
+  const test = trpc.tests.get.useQuery(undefined, {
+    initialData: getRouteData(),
+  });
 
   if (test.isLoading) return 'Loading...';
 
@@ -9,7 +11,8 @@ const App = () => {
     <div>
       <h1>tRPC + Vite</h1>
 
-      {test.data}
+      {/* {test.data} */}
+      {JSON.stringify(test.data)}
     </div>
   );
 };

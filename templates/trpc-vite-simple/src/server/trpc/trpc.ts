@@ -1,11 +1,15 @@
 import { initTRPC } from '@trpc/server';
 import { CreateHTTPContextOptions } from '@trpc/server/adapters/standalone';
-import { serverEnv as env } from '../env';
+import { serverEnv as env, type ServerEnv } from '../env';
 import { z } from 'zod';
 import superJSON from 'superjson';
 
-export const createTRPCContext = async ({ req, res }: CreateHTTPContextOptions) => {
-  return { req, res };
+export const createTRPCContext = async ({
+  req,
+  res,
+  serverEnv: env,
+}: CreateHTTPContextOptions & { serverEnv: ServerEnv }) => {
+  return { req, res, env };
 };
 
 const t = initTRPC.context<TRPCContext>().create({

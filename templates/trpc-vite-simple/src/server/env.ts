@@ -5,9 +5,12 @@ configDotenv({
   path: './.env',
 });
 
-export const serverEnv = z
-  .object({
-    NODE_ENV: z.enum(['development', 'production']),
-    SERVER_PORT: z.coerce.number().nonnegative(),
-  })
-  .parse(process.env);
+const envSchema = z.object({
+  NODE_ENV: z.enum(['development', 'production', 'build-client', 'build-server']),
+  SERVER_PORT: z.coerce.number().nonnegative(),
+  BASE: z.string().optional(),
+});
+
+export const serverEnv = envSchema.parse(process.env);
+
+export type ServerEnv = z.infer<typeof envSchema>;

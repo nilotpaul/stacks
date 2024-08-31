@@ -2,10 +2,19 @@ import { PropsWithChildren, useState } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import superjson from 'superjson';
 import { httpBatchLink, loggerLink } from '@trpc/react-query';
-import { trpc } from './lib/trpcClient';
+import { trpc } from './lib/kyrix';
 
 export const Providers = ({ children }: PropsWithChildren) => {
-  const [queryClient] = useState(() => new QueryClient());
+  const [queryClient] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            staleTime: 60 * 1000,
+          },
+        },
+      })
+  );
   const [trpcClient] = useState(() =>
     trpc.createClient({
       links: [
